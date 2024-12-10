@@ -37,7 +37,7 @@ def assess_game(user_action, computer_action):
             result = GameComputerResult.Lose
         else:
             print("Scissors cuts paper. You lost!")
-            result = GameComputerResult.Lose
+            result = GameComputerResult.Win
 
     # You picked Scissors
     elif user_action == GameAction.Scissors:
@@ -47,6 +47,7 @@ def assess_game(user_action, computer_action):
         else:
             print("Scissors cuts paper. You won!")
             result = GameComputerResult.Lose
+    return result
 
 
 def get_computer_action():
