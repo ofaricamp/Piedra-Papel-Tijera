@@ -1,12 +1,18 @@
 import random
 from enum import IntEnum
 
-
+result = 0
+last_user_action = 0
 class GameAction(IntEnum):
 
     Rock = 0
     Paper = 1
     Scissors = 2
+
+class GameComputerResult(IntEnum):
+    Lose = 0
+    Win = 1
+    Draw = 2
 
 
 def assess_game(user_action, computer_action):
