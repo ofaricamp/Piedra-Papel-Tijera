@@ -16,29 +16,37 @@ class GameComputerResult(IntEnum):
 
 
 def assess_game(user_action, computer_action):
+    global result
     if user_action == computer_action:
         print(f"User and computer picked {user_action.name}. Draw game!")
+        result = GameComputerResult.Draw
 
     # You picked Rock
     elif user_action == GameAction.Rock:
         if computer_action == GameAction.Scissors:
             print("Rock smashes scissors. You won!")
+            result = GameComputerResult.Lose
         else:
             print("Paper covers rock. You lost!")
+            result = GameComputerResult.Win
 
     # You picked Paper
     elif user_action == GameAction.Paper:
         if computer_action == GameAction.Rock:
             print("Paper covers rock. You won!")
+            result = GameComputerResult.Lose
         else:
             print("Scissors cuts paper. You lost!")
+            result = GameComputerResult.Lose
 
     # You picked Scissors
     elif user_action == GameAction.Scissors:
         if computer_action == GameAction.Rock:
             print("Rock smashes scissors. You lost!")
+            result = GameComputerResult.Win
         else:
             print("Scissors cuts paper. You won!")
+            result = GameComputerResult.Lose
 
 
 def get_computer_action():
