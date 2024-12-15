@@ -3,71 +3,52 @@ from enum import IntEnum
 
 result = 0
 last_user_action = 0
+last_computer_action = 0
 class GameAction(IntEnum):
 
     Rock = 0
     Paper = 1
     Scissors = 2
+    Lizard = 3
+    Spock = 4
 
 class GameComputerResult(IntEnum):
     Lose = 0
     Win = 1
     Draw = 2
 
+WinConditions = {
+    GameAction.Rock: [GameAction.Paper,GameAction.Spock],
+    GameAction.Paper: [GameAction.Scissors, GameAction.Lizard],
+    GameAction.Scissors: [GameAction.Rock,GameAction.Spock],
+    GameAction.Lizard: [GameAction.Scissors, GameAction.Rock],
+    GameAction.Spock:[GameAction.Paper, GameAction.Lizard]
+}
 
 def assess_game(user_action, computer_action):
     global result
     if user_action == computer_action:
         print(f"User and computer picked {user_action.name}. Draw game!")
         result = GameComputerResult.Draw
-
-    # You picked Rock
-    elif user_action == GameAction.Rock:
-        if computer_action == GameAction.Scissors:
-            print("Rock smashes scissors. You won!")
-            result = GameComputerResult.Lose
-        else:
-            print("Paper covers rock. You lost!")
-            result = GameComputerResult.Win
-
-    # You picked Paper
-    elif user_action == GameAction.Paper:
-        if computer_action == GameAction.Rock:
-            print("Paper covers rock. You won!")
-            result = GameComputerResult.Lose
-        else:
-            print("Scissors cuts paper. You lost!")
-            result = GameComputerResult.Win
-
-    # You picked Scissors
-    elif user_action == GameAction.Scissors:
-        if computer_action == GameAction.Rock:
-            print("Rock smashes scissors. You lost!")
-            result = GameComputerResult.Win
-        else:
-            print("Scissors cuts paper. You won!")
-            result = GameComputerResult.Lose
+    elif computer_action in WinConditions[user_action]:
+        print(f"Computer picked {computer_action}, you lose!")
+        result = GameComputerResult.Win
+    else:
+        print(f"computer picked {computer_action}, you win!")
+        result = GameComputerResult.Lose    
     return result
 
 
 def get_computer_action():
     global result
     global last_user_action
+    global last_computer_action
+
     if result == GameComputerResult.Win:
-        computer_selection = last_user_action
+       choice = [option for option in WinConditions if option not in [last_computer_action,last_user_action]]
+       computer_selection = random.choice(WinConditions[choice])
     elif result == GameComputerResult.Lose:
-
-        #User pick Rock last round
-        if last_user_action == GameAction.Rock:
-            computer_selection = GameAction.Paper
-            
-        # User pick Paper last round
-        elif last_user_action == GameAction.Paper:
-           computer_selection =  GameAction.Scissors
-
-        # User pick Scissor last round
-        elif last_user_action == GameAction.Scissors:
-           computer_selection =  GameAction.Rock  
+         computer_selection =  random.choice(WinConditions[last_user_action])
     else:
         computer_selection =  random.randint(0, len(GameAction) - 1)
     computer_action = GameAction(computer_selection)
@@ -93,6 +74,7 @@ def play_another_round():
 
 def main():
     global last_user_action
+    global last_computer_action
     while True:
         try:
             user_action = get_user_action()
@@ -103,6 +85,7 @@ def main():
 
         computer_action = get_computer_action()
         last_user_action = user_action
+        last_computer_action = computer_action
         assess_game(user_action, computer_action)
 
         if not play_another_round():
