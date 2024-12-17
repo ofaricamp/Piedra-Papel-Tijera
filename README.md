@@ -24,7 +24,7 @@ Como se definio previamente en el apartado de **no deterministico** se puede tra
 Digo que es estático porque el estado del mundo no cambia en absoluto despues de que la decisión fue tomada.
 
 #### **Discreto:**
-Es discreto porque las posibilidades son limitas al igual que todas las posibles combinaciones a realizar de las mismas.
+Es discreto porque las posibilidades son limitadas al igual que todas las posibles combinaciones a realizar de las mismas.
 
 #### **Conocido:**
 Considero que es conocido puesto que todos los agentes conocen previamente las normas antes de jugar al juego y por tanto no se tiene ninguna información que no conozca ninguno de los agentes.
