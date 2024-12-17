@@ -24,7 +24,7 @@ Como se definio previamente en el apartado de **no deterministico** se puede tra
 Digo que es estático porque el estado del mundo no cambia en absoluto despues de que la decisión fue tomada.
 
 #### **Discreto:**
-Es discreto porque las posibilidades son limitas al igual que todas las posibles conbinaciones a realizar de las mismas.
+Es discreto porque las posibilidades son limitas al igual que todas las posibles combinaciones a realizar de las mismas.
 
 #### **Conocido:**
 Considero que es conocido puesto que todos los agentes conocen previamente las normas antes de jugar al juego y por tanto no se tiene ninguna información que no conozca ninguno de los agentes.
@@ -50,8 +50,21 @@ Siguiendo la logica de como ganar en RPS, como se explica en el sigueinte video 
 
 + **Procesamiento de decisión de movimiento**: Con los elementos anteriores sera en esta parte donde se pondra todo a peso y se hará la elección de la jugada por parte del agente para la siguiente ronda.
 
-<div id= 'logica'>
+## 3. Proceso de instalación
+Los pasos a seguir para poder ejecutar este programa son los siguientes:
 
+1. Necesitaremos clonar este repositorio github para ello nos situaremos en la carpeta donde deseamos tener el repositorio y ejecutar desde consola el comando:
+    `git clone https://github.com/ofaricamp/Piedra-Papel-Tijera.git`
+2. Una vez clonado deberemos situarnos en la carpeta donde estan los programas para ello lanzaremos el siguiente comando para poder situarno en la carpeta:
+   `cd src`
+3. Una vez ya dentro deberemos ejecutar el ficheri .py que deseemos ejecutar para ellos se empleara el siguiente comando:
+   - En caso de querer lanzar el **RPS**:
+     `python3 RPS.py`
+   - En caso de querer lanzar el **RPSLS**:
+     `python3 RPSLS.py`
+
+ <div id= 'logica'>
+  
 ### Lógica empleada para el agente:
 La lógica a emplear es realmente sencilla es estadística pura, por ejemplo como primer movimiento el que tiene más probabilidades de ganar es sacar papel en vez de cualquier otra.
 
