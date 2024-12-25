@@ -77,3 +77,6 @@ esto solo en el movimiento inicial y a continuación la explicación para cada u
 + **Empate:** El caso del empate se resume en ***dejarlo en manos del destino*** puesto que no hay una estrategia fija o óptima para este caso, a si que nuestro agente debera sacar una de las posibles opciones de manera aleatoria.
   
 [Explicación del diagrama del agente:](#diagrama)
+
+# Piedra-Papel-Tijera-Lagarto-Spock
+La lógica empleada es la misma que en el RPS normal con la principal diferencía de que cuando pierde, como las opciones se amplian a elegir entre 2, **el oponente saca piedra y nosotros sacamos tijeras**, nuestra decisión ya no es como en el RPS normal,en el que sacariamos papel, si no que aquí dispondríamos de PAPEL y SPOCK por lo tanto es un **50% de probabilidades**. Por ello insertamos un random que generé una de las 2 opciones posibles y así continuar jugando.
