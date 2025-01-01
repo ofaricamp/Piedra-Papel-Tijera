@@ -36,6 +36,15 @@ El tipo de agente empleado en este proyecto se trata de uno **reactivo basado en
 #### **Diagrama**
 ![imagen del esquema](/img/Esquema.png)
 
+
+**`asses_game`**: Esta función devuelve el resultado de la partida que sera **Lose ,Win o Draw**
+
+**`last_user_action`**: En esta variable global se almacenará la ultima acción que el usuario realizó.
+
+**`result`**: Variable global donde se almacena el resultado de la ultima partida acabada.
+
+**`get_computer_action`**: En esta función es donde tendremos en cuenta el resultado de la partida y el ultimo movimiento del usuario, puesto que es en ella donde se aplicará la ideologia planteada.
+
 Siguiendo la logica de como ganar en RPS, como se explica en el sigueinte video es el razonamiento en el que esta basado mi agente: [Video de lógica del razonamiento](https://www.youtube.com/watch?v=TPz5LFmq5cw "Video de lógica del razonamiento")
 
 [explicación de la lógica empleada en caso de no desear ver el video](#logica)
